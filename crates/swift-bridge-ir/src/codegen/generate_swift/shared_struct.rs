@@ -84,6 +84,10 @@ extension {struct_name}: Vectorizable {{
         return maybeStruct.intoSwiftRepr()
     }}
 
+    public static func vecOfSelfAsPtr(vecPtr: UnsafeMutableRawPointer) -> UnsafePointer<Self> {{
+        UnsafePointer<Self>(OpaquePointer(__swift_bridge__$Vec_{struct_name}$as_ptr(vecPtr)))
+    }}
+
     public static func vecOfSelfLen(vecPtr: UnsafeMutableRawPointer) -> UInt {{
         __swift_bridge__$Vec_{struct_name}$len(vecPtr)
     }}
